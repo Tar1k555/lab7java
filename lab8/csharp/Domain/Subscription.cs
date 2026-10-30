@@ -1,37 +1,5 @@
 namespace Variant3_FitnessMembership.Domain
 {
-    public class Member
-    {
-        public int Id { get; }
-        public string Name { get; }
-        public string Phone { get; }
-        public bool HasDiscountCard { get; }
-
-        public Member(int id, string name, string phone, bool hasDiscountCard)
-        {
-            Id = id;
-            Name = name;
-            Phone = phone;
-            HasDiscountCard = hasDiscountCard;
-        }
-    }
-
-    public class MembershipPlan
-    {
-        public string Code { get; } // "Day", "Full", "VIP"
-        public string Title { get; }
-        public decimal BaseMonthlyRate { get; }
-        public int MonthsDuration { get; }
-
-        public MembershipPlan(string code, string title, decimal baseMonthlyRate, int monthsDuration)
-        {
-            Code = code;
-            Title = title;
-            BaseMonthlyRate = baseMonthlyRate;
-            MonthsDuration = monthsDuration;
-        }
-    }
-
     public class Subscription
     {
         public int Id { get; }
@@ -44,7 +12,7 @@ namespace Variant3_FitnessMembership.Domain
         public string StartDate { get; }
         public string Status { get; private set; }
 
-        // Creator паттерн: конструктор або фабричний метод гарантує створення валідного об'єкта
+        // Creator паттерн: конструктор гарантує створення валідного об'єкта
         public Subscription(int id, Member member, MembershipPlan plan, bool personalTrainerIncluded, string startDate)
         {
             Id = id;
